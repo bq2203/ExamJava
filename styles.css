@@ -1,0 +1,155 @@
+/* Estilos generales */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;/*Determina y calcula, el ancho y el alto de los elementos*/
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 0;
+  text-align: center;
+  background: rgb(131, 131, 228);
+}
+
+/* Contenedor principal */
+
+.contenedor {
+  width: 1000px;
+  min-height: 500px;
+  background-color: white;
+  padding: 40px;
+  border: 5px solid black;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Titulo */
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+/* Ingresar texto */
+
+input {
+  width: 80%;
+  height: 50px;
+  font-size: 25px;
+  margin: 20px;
+  padding: 10px;
+  border: 4px solid #404040;
+  border-radius: 10px;
+}
+
+/* Boton */
+
+button {
+  width: 150px;
+  height: 60px;
+  padding: 10px;
+  color: white;
+  background-color: #1312a8;
+  font-size: 22px;
+  border-radius: 20px;
+  border: 0px solid black;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Lista de tareas */
+
+#lista-de-tareas {
+  width: 80%;
+  margin-top: 20px;
+}
+
+/* Tareas individuales */
+
+.tarea {
+  width: 100%;
+  min-height: 120px; /* Aumenta la altura para dar más espacio */
+  font-size: 25px;
+  padding: 10px;
+  margin-top: 20px; /* Aumenta el margen superior para separar más las tareas */
+  /*Color de los porcentajes de avance*/
+  
+  color: rgb(15, 231, 65);
+  background-color: #c97a84;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+  text-align: left; 
+  gap: 0px;
+}
+
+/* Contenedor de la barra de progreso */
+.barra-contenedor {
+  width: 50%; 
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  align-self:center;  
+}
+
+.barraTexto {
+  font-size:14px; 
+  font-weight:bold; 
+  text-align:center;
+}
+
+.barraProgreso {
+  appearance:none; 
+  -webkit-appearance:none; 
+  width:100%; height:20px; 
+  border:2px solid black; 
+  border-radius:10px; 
+  outline:none; 
+  cursor:pointer;
+}
+
+
+/* Estilo para tarea completada */
+
+.tarea.completada {
+  text-decoration: line-through;
+  background-color: black;
+  border: none;
+}
+
+.tarea p {
+  max-width: 350px;
+  color: hwb(251 2% 60% / 0.822);
+}
+
+/* Iconos */
+
+i {
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.icono-completar {
+  color: rgb(0, 255, 0);
+}
+
+.icono-eliminar {
+  color: rgb(233, 10, 10);
+}
+
+.icono-completar:hover,
+.icono-eliminar:hover {
+  background-color: rgba(255, 255, 255, 0.523);
+}
