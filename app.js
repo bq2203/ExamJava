@@ -1,4 +1,26 @@
 /* ----------------------------------------------------------------
+   FECHA Y HORA ACTUAL EN VIVO
+   ---------------------------------------------------------------- */
+const fechaHoraElemento = document.getElementById('fecha-hora');
+
+function actualizarFechaHora() {
+  let ahora = new Date();
+
+  let fecha = ahora.toLocaleDateString('es-ES');
+
+  let hora = ahora.toLocaleTimeString('es-ES');
+
+  fechaHoraElemento.innerText = `${fecha} - ${hora}`;
+}
+actualizarFechaHora();
+
+// setInterval ejecuta la función cada 1000 ms (1 segundo),
+setInterval(actualizarFechaHora, 1000);
+
+//DEFINIR CONSTANTE DE CONTADOR 
+const contadorTareas = document.getElementById('contador-tareas');
+
+/*----------------------------------------------------------------
    1. SELECCIONAR LOS ELEMENTOS DEL index.html
    Guardamos en variables los 3 elementos con los que vamos a
    trabajar todo el tiempo, para no tener que buscarlos de nuevo
@@ -16,7 +38,6 @@ const boton = document.querySelector('button');
 // getElementById -> el <div id="lista-de-tareas"> es el "contenedor padre"
 // donde vamos a ir metiendo cada tarea nueva que el usuario cree.
 const listaDeTareas = document.getElementById('lista-de-tareas');
-
 
 /* ----------------------------------------------------------------
    2. EVENTOS QUE DISPARAN LA CREACIÓN DE UNA TAREA
@@ -151,6 +172,7 @@ function agregarTarea() {
     // el contenedor de iconos (<div class="iconos">) con sus 2 <i>.
     // Recién AHORA se hace visible en la página.
     listaDeTareas.appendChild(tareaNueva);
+    actualizarContador();
 
     // Limpiamos el input para que quede listo para la siguiente tarea
     // (buena práctica: si no lo hacemos, el texto anterior se queda
@@ -163,6 +185,7 @@ function agregarTarea() {
     alert('Por favor ingresa una tarea y un responsable.');
   }
 }
+
 
 
 /* ----------------------------------------------------------------
@@ -244,4 +267,10 @@ function eliminarTarea(e) {
   // A diferencia de ocultarlo con CSS (display: none), remove()
   // lo borra de verdad: ya no existe en el árbol del documento.
   tarea.remove();
+  actualizarContador();
+}
+
+function actualizarContador() {
+  let cantidad = listaDeTareas.children.length; 
+  contadorTareas.innerText = `Tareas: ${cantidad}`;
 }
