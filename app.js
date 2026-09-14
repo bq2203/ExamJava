@@ -108,9 +108,6 @@ function agregarTarea() {
 function actualizarBarra(input) {
   let valor = input.value;
 
-  // Pinta un gradiente: verde desde 0 hasta el valor actual, gris el resto.
-  input.style.background = `linear-gradient(to right, rgb(15,231,65) ${valor}%, #e0e0e0 ${valor}%)`;
-
   // Busca el texto "X%" (hermano de la barra) y lo actualiza.
   let barraContenedor = input.parentNode;
   barraContenedor.querySelector('.barra-texto').innerText = valor + '%';
